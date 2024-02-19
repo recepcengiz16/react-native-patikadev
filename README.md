@@ -1,0 +1,1 @@
+Patika Dev sitesinden React Native öğrenirken aldığım  notlar
