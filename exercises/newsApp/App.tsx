@@ -1,26 +1,34 @@
 
 import React from 'react';
 import {
+  ScrollView,
   SafeAreaView,
   StyleSheet,
   Text,
-  FlatList
+  FlatList,
 } from 'react-native';
 
-import newsData from "./news_data.json";
 import NewsCard from './src/components/NewsCard';
+import newsData from "./news_data.json";
+import newsBannerData from "./news_banner_data.json";
 
 
 export default function App(): React.JSX.Element {
 
+  const renderItems = ({item})=> <NewsCard news={item} /> ;
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text> Merhaba Recep </Text>
+    
+     <ScrollView>
+       
+     </ScrollView>
 
-      <FlatList
-        data={newsData}
-        renderItem={({item})=> <NewsCard news={item} /> }
-      />
+     <FlatList
+          keyExtractor={(item) => item.u_id.toString()}
+            data={newsData}
+            renderItem={ renderItems }
+          />
 
     </SafeAreaView>
   );
@@ -30,7 +38,8 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    backgroundColor:"#eceff1",
   }
 });
 
