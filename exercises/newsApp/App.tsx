@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import newsData from "./news_data.json";
+import NewsCard from './src/components/NewsCard';
 
 
 export default function App(): React.JSX.Element {
@@ -18,7 +19,7 @@ export default function App(): React.JSX.Element {
 
       <FlatList
         data={newsData}
-        renderItem={({item})=> <Text> {item.title} </Text> }
+        renderItem={({item})=> <NewsCard news={item} /> }
       />
 
     </SafeAreaView>
